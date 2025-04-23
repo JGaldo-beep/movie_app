@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Movie App</string>
+    <!--  Values  -->
+    <string name="movie1">Inception</string>
+    <string name="description1">A skilled thief enters people’s dreams to steal secrets, but is tasked with planting an idea instead.</string>
+    <string name="genre1">Sci-Fi</string>
+    <string name="year1">2010</string>
+
+    <string name="movie2">Interstellar</string>
+    <string name="description2">A group of astronauts travels through a wormhole in search of a new home for humanity.</string>
+    <string name="genre2">Sci-Fi/Drama</string>
+    <string name="year2">2014</string>
+
+    <string name="movie3">The Dark Knight</string>
+    <string name="description3">Batman faces off against the Joker, a chaotic villain threatening to plunge Gotham into anarchy.</string>
+    <string name="genre3">Action</string>
+    <string name="year3">2008</string>
+
+    <string name="movie4">La La Land</string>
+    <string name="description4">A jazz musician and an aspiring actress fall in love while chasing their dreams in Los Angeles.</string>
+    <string name="genre4">Musical/Drama</string>
+    <string name="year4">2016</string>
+
+    <string name="movie5">Coco</string>
+    <string name="description5">Young Miguel journeys to the Land of the Dead to uncover his family's hidden musical legacy.</string>
+    <string name="genre5">Animation</string>
+    <string name="year5">2017</string>
+
+    <string name="movie6">Avengers: Endgame</string>
+    <string name="description6">The Avengers unite one last time to undo Thanos’ snap and save the universe.</string>
+    <string name="genre6">Superheroes</string>
+    <string name="year6">2019</string>
+
+    <string name="movie7">Spider-Man: Into the Spider-Verse</string>
+    <string name="description7">Teenager Miles Morales discovers he’s not the only Spider-Man as he meets heroes from other dimensions.</string>
+    <string name="genre7">Animation/Sci-Fi</string>
+    <string name="year7">2018</string>
+</resources>
