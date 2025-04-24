@@ -1,0 +1,77 @@
+package com.example.movieapp
+
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.movieapp.ui.MovieList
+import com.example.movieapp.ui.MovieViewModel
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun MovieApp(
+    movieViewModel: MovieViewModel = viewModel()
+) {
+    val movieUiState by movieViewModel.uiState.collectAsState()
+    Scaffold (
+        topBar = { MovieAppBar(modifier = Modifier) }
+    ) { innerPadding ->
+        Surface (
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
+            MovieList(
+                modifier = Modifier.padding(top = 16.dp)
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MovieAppBar(
+    canNavigateBack: Boolean = true,
+    modifier: Modifier
+) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = "Movie App"
+            )
+        },
+        modifier = modifier,
+        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+            containerColor = colorScheme.primaryContainer
+        ),
+        navigationIcon = {
+            if (canNavigateBack) {
+                IconButton(
+                    onClick = { /*TODO: Go back to previous screen */ }
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(id = R.string.back_arrow)
+                    )
+                }
+            }
+        }
+    )
+}
