@@ -5,6 +5,9 @@
     <string name="circle_black">⚫</string>
     <string name="on_live">Watching the movie…</string>
     <string name="back_home">Back to home</string>
+    <string name="list_screen">Movies</string>
+    <string name="detail_screen">Detail</string>
+    <string name="on_live_screen">On Live</string>
     <!--  Values  -->
     <string name="name1">Inception</string>
     <string name="description1">A skilled thief enters people’s dreams to steal secrets, but is tasked with planting an idea instead.</string>
