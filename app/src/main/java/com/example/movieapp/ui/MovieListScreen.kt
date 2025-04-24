@@ -1,6 +1,7 @@
 package com.example.movieapp.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,7 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -33,14 +34,20 @@ import com.example.movieapp.data.Resource
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun MovieList(modifier: Modifier = Modifier) {
+fun MovieListScreen(
+    onMovieClick: (Int) -> Unit = { },
+    modifier: Modifier = Modifier
+) {
     val movies = Resource.allMovies
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier
     ) {
-        items(movies) { movie ->
-            MovieCard(movie = movie)
+        itemsIndexed(movies) { index, movie ->
+            MovieCard(
+                movie = movie,
+                onClick = { onMovieClick(index) }
+            )
         }
     }
 }
@@ -48,13 +55,20 @@ fun MovieList(modifier: Modifier = Modifier) {
 @Composable
 fun MovieCard(
     movie: Movie = Resource.allMovies[0],
+    onClick: () -> Unit,
 ) {
+    val title = stringResource(id = movie.title)
+    val genre = stringResource(id = movie.genre)
+    val year = stringResource(id = movie.year)
     Card (
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
         ),
         shape = RoundedCornerShape(16.dp),
-        modifier = Modifier.padding(horizontal = 16.dp).fillMaxWidth(),
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
         colors = CardDefaults.cardColors(
             containerColor = colorScheme.surfaceVariant
         )
@@ -82,16 +96,16 @@ fun MovieCard(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 Text(
-                    text = stringResource(id = movie.title),
+                    text = title,
                     style = typography.titleLarge,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = stringResource(id = movie.genre),
+                    text = genre,
                     style = typography.bodyLarge
                 )
                 Text(
-                    text = stringResource(id = movie.year),
+                    text = year,
                     style = typography.bodyLarge
                 )
             }

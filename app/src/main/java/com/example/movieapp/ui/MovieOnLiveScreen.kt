@@ -16,7 +16,9 @@ import com.example.movieapp.ui.theme.Typography
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun MovieOnLiveScreen() {
+fun MovieOnLiveScreen(
+    onBackHome: () -> Unit = { }
+) {
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
@@ -26,7 +28,7 @@ fun MovieOnLiveScreen() {
             style = Typography.displaySmall
         )
         Button (
-            onClick = { },
+            onClick = onBackHome,
             modifier = Modifier.padding(top = 16.dp)
         ) {
             Text(
