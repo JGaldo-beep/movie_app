@@ -26,12 +26,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.movieapp.data.Movie
 import com.example.movieapp.data.Resource
 
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun MovieList(modifier: Modifier) {
+fun MovieList(modifier: Modifier = Modifier) {
     val movies = Resource.allMovies
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(16.dp),
